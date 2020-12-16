@@ -37,11 +37,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
     // タップを終了した
     } else if sender.state == .ended {
     
-      // タップした位置を指定してMKMap上の緯度と経度を取得する
+      let tapPoint = sender.location(in: view)
       
+      // タップした位置（CGPoint）を指定してMKMapViewの緯度経度を取得
+      let center = mapView.convert(tapPoint, toCoordinateFrom: mapView)
       
+      let lat = center.latitude
+      let log = center.longitude
+    
       // 緯度経度から住所に変換
-      
+      convert(lat: lat, log: log)
     }
   }
 
@@ -52,6 +57,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
     let location = CLLocation(latitude: lat, longitude: log)
     
     // クロージャー
+    // クロージャーの中に入ってるものは self を書く
     // 値が入ったあとにカッコ内が呼ばれ、値が入るまではカッコの外が呼ばれる
     geocoder.reverseGeocodeLocation(location) {
       (placeMark, error) in
@@ -62,7 +68,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
             
             // namaはランドマークの名前
             self.addressString = pm.name! + pm.administrativeArea! + pm.locality!
+          } else {
+            self.addressString = pm.name!
           }
+          self.addressLabel.text = self.addressString
         }
       }
     }
