@@ -45,5 +45,26 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
     }
   }
 
-  
+  // 緯度と経度を使う
+  func convert(lat:CLLocationDegrees,
+               log:CLLocationDegrees) {
+    let geocoder = CLGeocoder()
+    let location = CLLocation(latitude: lat, longitude: log)
+    
+    // クロージャー
+    // 値が入ったあとにカッコ内が呼ばれ、値が入るまではカッコの外が呼ばれる
+    geocoder.reverseGeocodeLocation(location) {
+      (placeMark, error) in
+      
+      if let placeMark = placeMark {
+        if let pm = placeMark.first {
+          if pm.administrativeArea != nil || pm.locality != nil {
+            
+            // namaはランドマークの名前
+            self.addressString = pm.name! + pm.administrativeArea! + pm.locality!
+          }
+        }
+      }
+    }
+  }
 }
