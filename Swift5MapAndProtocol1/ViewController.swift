@@ -6,14 +6,44 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecognizerDelegate {
 
+  var addressString = ""
+  
+  @IBOutlet var longPress: UILongPressGestureRecognizer!
+  @IBOutlet weak var settingButton: UIButton!
+  
+  @IBOutlet weak var mapView: MKMapView!
+  var locManager:CLLocationManager!
+  
+  @IBOutlet weak var addressLabel: UILabel!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+
+    settingButton.backgroundColor = .white
+    settingButton.layer.cornerRadius = 20.0
   }
 
+  // senderはlongTapのこと
+  @IBAction func longPressTap(_ sender: UILongPressGestureRecognizer) {
+    
+    // タップを開始した
+    if sender.state == .began{
+    
+    // タップを終了した
+    } else if sender.state == .ended {
+    
+      // タップした位置を指定してMKMap上の緯度と経度を取得する
+      
+      
+      // 緯度経度から住所に変換
+      
+    }
+  }
 
+  
 }
-
