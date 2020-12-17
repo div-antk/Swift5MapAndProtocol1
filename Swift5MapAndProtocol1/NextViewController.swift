@@ -7,8 +7,20 @@
 
 import UIKit
 
+// ボタンを押したときに緯度と経度を渡す
+protocol <#name#> {
+  <#requirements#>
+}
+
 class NextViewController: UIViewController {
 
+  // 緯度
+  @IBOutlet weak var latTextField: UITextField!
+  
+  // 経度
+  @IBOutlet weak var logTextField: UITextField!
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
