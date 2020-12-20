@@ -34,7 +34,7 @@ class NextViewController: UIViewController {
     let logValue = logTextField.text!
     
     // 両方のテキストフィールドが空でなければ戻る
-    if latValue.text != nil && logValue.text != nil {
+    if latTextField.text != nil && logTextField.text != nil {
       // delegateメソッドの引数に入れる
       delegate?.searchLocation(latValue: latValue, logValue: logValue)
       dismiss(animated: true, completion: nil)

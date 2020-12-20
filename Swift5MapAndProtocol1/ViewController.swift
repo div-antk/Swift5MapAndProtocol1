@@ -108,6 +108,14 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
       mapView.setRegion(region, animated: true)
       
       // 緯度経度から住所を取得
+      convert(lat: Double(latString)!, log: Double(logString)!)
+      
+      // ラベルに表示
+      addressLabel.text = addressString
+      
+    } else {
+      addressLabel.text = "表示できません"
+
     }
   }
 }

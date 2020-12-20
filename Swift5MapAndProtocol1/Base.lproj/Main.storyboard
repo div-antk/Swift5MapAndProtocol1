@@ -49,7 +49,7 @@
                         <outlet property="longPress" destination="piN-k8-PJ3" id="fo2-Hs-ebg"/>
                         <outlet property="mapView" destination="ELI-Ha-qhk" id="KyB-Wk-lIR"/>
                         <outlet property="settingButton" destination="tjw-1n-Vdu" id="w0W-bh-rRo"/>
-                        <segue destination="TCA-9M-n6t" kind="presentation" modalPresentationStyle="fullScreen" id="J4H-yv-sNa"/>
+                        <segue destination="TCA-9M-n6t" kind="presentation" identifier="next" modalPresentationStyle="fullScreen" id="J4H-yv-sNa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -110,12 +110,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d8l-58-pax">
                                 <rect key="frame" x="71" y="204" width="272" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ot2-Nf-jJP">
                                 <rect key="frame" x="71" y="298" width="272" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
