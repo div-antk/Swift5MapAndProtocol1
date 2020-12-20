@@ -9,7 +9,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecognizerDelegate, SearchLocationDelegate {
+
 
   var addressString = ""
   
@@ -84,6 +85,29 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "next" {
       let nextVC = segue.destination as! NextViewController
+      nextVC.delegate = self
+    }
+  }
+  
+  // 任されたデリゲートメソッド
+  func searchLocation(latValue: String, logValue: String) {
+    if latValue.isEmpty != true && logValue.isEmpty != true {
+      let latString = latValue
+      let logString = logValue
+    
+      // 緯度経度を元にコーディネート
+      let cordinate = CLLocationCoordinate2DMake(Double(latString)!, Double(logString)!)
+      
+      // 表示する範囲を指定
+      let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+      
+      // 領域を指定
+      let region = MKCoordinateRegion(center: cordinate, span: span)
+      
+      // 領域をmapViewに設定
+      mapView.setRegion(region, animated: true)
+      
+      // 緯度経度から住所を取得
     }
   }
 }

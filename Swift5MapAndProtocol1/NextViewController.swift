@@ -8,7 +8,7 @@
 import UIKit
 
 // ボタンを押したときに緯度と経度を渡す
-protocol searchLocationDelegate {
+protocol SearchLocationDelegate {
   func searchLocation(latValue:String, logValue:String)
 }
 
@@ -20,7 +20,7 @@ class NextViewController: UIViewController {
   // 経度
   @IBOutlet weak var logTextField: UITextField!
   
-  var delegate:searchLocationDelegate?
+  var delegate:SearchLocationDelegate?
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +30,15 @@ class NextViewController: UIViewController {
     
   @IBAction func okAction(_ sender: Any) {
     // 入力された値を取得
-    
-    // delegateメソッドの引数に入れる
+    let latValue = latTextField.text!
+    let logValue = logTextField.text!
     
     // 両方のテキストフィールドが空でなければ戻る
+    if latValue.text != nil && logValue.text != nil {
+      // delegateメソッドの引数に入れる
+      delegate?.searchLocation(latValue: latValue, logValue: logValue)
+      dismiss(animated: true, completion: nil)
+    }
   }
   
     /*
