@@ -63,6 +63,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate, UIGestureRecog
     geocoder.reverseGeocodeLocation(location) {
       (placeMark, error) in
       
+      // if 変数 != nil と同じ
       if let placeMark = placeMark {
         if let pm = placeMark.first {
           if pm.administrativeArea != nil || pm.locality != nil {
